@@ -1,46 +1,42 @@
-# DentalFlow V1 — Minimal Foundation
+# DentalFlow V2 — Continuous Clinical Workflow
 
-এটি DentalFlow-এর আলাদা, stable foundation build। এটি mobile-first এবং patient data browser-এর local IndexedDB-তে রাখে।
+V2 V1-এর local-first foundation-এর ওপর তৈরি। এটি phone-first single-device app; patient ও visit data IndexedDB-তে থাকে।
 
-## V1-এ যা আছে
-- Overview: মোট patient ও আজ যোগ করা patient count
-- Patient add, search, details, edit ও delete
-- Fields: name, phone, age, gender, general notes
-- JSON backup download ও backup restore
-- PWA manifest ও service-worker shell cache
-- Responsive mobile layout
-- Patient data source files বা GitHub repository-তে রাখা হয় না
+## V2-তে নতুন
+- Patient profile থেকে Clinical Visit যোগ করা
+- Visit date, chief complaint, history, examination, diagnosis, treatment done, advice, prescription notes, next visit ও follow-up status
+- Patient-এর visit history একই profile-এ দেখা
+- Visit edit ও delete
+- Patient delete করলে তার linked clinical visits-ও delete হবে—confirmation দেওয়া হয়
+- Backup V2-তে patients ও visits দুটোই থাকে; V1 backup-ও restore করা যায়
+- IndexedDB schema version 2: existing V1 patient records preserve করার জন্য upgrade path
 
-## V1-এ যা ইচ্ছাকৃতভাবে নেই
-Clinical visit, dental chart, diagnosis, treatment planning, prescription, appointments, billing, expenses, reports, login বা cloud sync—এগুলো এখন যোগ করা হয়নি। প্রথমে foundation স্থিতিশীল রাখা হচ্ছে।
+## এখনো নেই
+Dental chart, tooth-wise status, treatment planning, payments/accounts, reports, appointment calendar, cloud sync/login—এগুলো এই build-এ নেই। এগুলো পরের ধাপে আলাদা করে যোগ করা হবে।
 
-## GitHub Pages-এ deploy
-1. GitHub-এ নতুন repository তৈরি করো: `dentalflow-clinic`।
-2. GitHub Free ব্যবহার করলে Pages-এর জন্য repository Public রাখো।
-3. ZIP extract করে ভেতরের সব file repository root-এ upload করো। শুধু ZIP file upload করলে app চলবে না।
-4. Repository → **Settings** → **Pages** → **Deploy from a branch** বেছে নাও।
-5. Branch `main`, folder `/(root)` বেছে **Save** করো।
-6. Pages URL খোলো। প্রথমবার online থাকাকালীন load করো, তারপর offline test করো।
+## Deploy
+1. ZIP extract করো।
+2. GitHub repository `dentalflow-clinic`-এর root-এ ZIP-এর ভেতরের files upload করো; পুরনো files overwrite করো।
+3. GitHub → Settings → Pages → Deploy from a branch → `main` / `/(root)`।
+4. Pages site reload করো। পুরনো cached version দেখা গেলে browser-এ refresh করো; service-worker cache version বদলানো হয়েছে।
 
-## Privacy ও backup
-- Patient records এই device/browser-এর local IndexedDB-তে থাকে।
-- Browser storage clear বা device loss হলে records হারাতে পারে। নিয়মিত JSON backup রাখো।
-- Backup file-এ confidential patient information থাকতে পারে। এটি public repository বা public link-এ upload/share করবে না।
-- Restore করলে বর্তমান records replace হবে; confirmation দেখানো হয়।
-- এটি local-first V1; login, cloud sync বা encryption-at-rest নেই। Device lock এবং private backup storage ব্যবহার করো।
+## Backup/privacy
+- Patient ও visit data local IndexedDB-তে থাকে, public source files-এ নয়।
+- Backup file-এ confidential data থাকতে পারে—public repo বা public link-এ কখনো upload/share করবে না।
+- Restore current patient and visit data replace করে। Restore-এর আগে confirmation আসে।
+- Browser storage clear/device loss হলে data হারাতে পারে। Regular JSON backup রাখো।
+- No login, cloud sync or encryption-at-rest. Use device lock and private backup storage.
 
-## Phone থেকে deploy
-ZIP extract করতে ফোনের file manager/ZIP app ব্যবহার করো। GitHub repository root-এ সব file upload করো এবং নিশ্চিত করো `index.html` root-এ আছে।
+## Test checklist
+- [ ] Existing V1 patient data remains after updating to V2
+- [ ] Add/edit/search patient
+- [ ] Open patient → Add visit → save
+- [ ] Visit history appears under correct patient
+- [ ] Edit and delete a visit
+- [ ] Delete a test patient and confirm linked visits are removed
+- [ ] Export backup and check it includes `patients` and `visits`
+- [ ] Restore a test backup; verify it replaces current records
+- [ ] Reload and verify records persist
+- [ ] Test mobile layout and offline app shell
 
-## Smoke test
-- [ ] App opens without a blank screen
-- [ ] Add and save a test patient
-- [ ] Search by name and phone
-- [ ] Open details, edit, delete a test patient
-- [ ] Export JSON backup
-- [ ] Restore a test backup (this replaces current records)
-- [ ] Reload and confirm records remain
-- [ ] Check offline shell after first successful load
-- [ ] Check phone portrait layout
-
-**Important:** Real patient data ব্যবহারের আগে backup/privacy workflow পরীক্ষা করো। V1-এ clinical visit বা treatment fields নেই।
+Real patient data ব্যবহার করার আগে test records দিয়ে সব workflow যাচাই করো।

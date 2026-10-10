@@ -8,7 +8,7 @@
 </head>
 <body>
 <header class="topbar"><button id="menuBtn" class="icon-btn" aria-label="Open menu">☰</button><div class="brand"><span class="brand-mark">✚</span><div><strong>DentalFlow</strong><small>Clinic workspace</small></div></div><button id="addTopBtn" class="primary small">+ Patient</button></header>
-<div id="shade" class="shade"></div><aside id="drawer" class="drawer"><div class="drawer-head"><span class="brand-mark">✚</span><strong>DentalFlow</strong><button id="closeMenu" class="icon-btn" aria-label="Close menu">×</button></div><button class="drawer-item active" data-view="home">⌂ <span>Overview</span></button><button class="drawer-item" data-view="patients">♙ <span>Patients</span></button><button class="drawer-item" data-view="backup">▣ <span>Backup & Restore</span></button><div class="drawer-note">V1 · Local-first foundation<br>Patient records stay on this device.</div></aside>
+<div id="shade" class="shade"></div><aside id="drawer" class="drawer"><div class="drawer-head"><span class="brand-mark">✚</span><strong>DentalFlow</strong><button id="closeMenu" class="icon-btn" aria-label="Close menu">×</button></div><button class="drawer-item active" data-view="home">⌂ <span>Overview</span></button><button class="drawer-item" data-view="patients">♙ <span>Patients</span></button><button class="drawer-item" data-view="backup">▣ <span>Backup & Restore</span></button><div class="drawer-note">V2 · Clinical workflow<br>Records stay on this device.</div></aside>
 <main id="app" class="main">
 <section id="view-home" class="view"><div class="welcome"><div><p class="eyebrow">CLINIC WORKSPACE</p><h1>Overview</h1><p class="muted">তোমার patient records এক জায়গায় রাখো।</p></div><div class="welcome-icon">✚</div></div>
 <div class="stats"><article class="stat-card"><span class="stat-icon">♙</span><span class="stat-label">Total patients</span><strong id="totalPatients">0</strong></article><article class="stat-card"><span class="stat-icon">＋</span><span class="stat-label">Added today</span><strong id="todayPatients">0</strong></article></div>
@@ -26,6 +26,24 @@
 <label>Patient name <span class="required">*</span><input id="patientName" maxlength="100" required autocomplete="name" placeholder="Full name"></label>
 <div class="form-row"><label>Phone<input id="patientPhone" inputmode="tel" maxlength="25" placeholder="Phone number"></label><label>Age<input id="patientAge" type="number" min="0" max="120" inputmode="numeric" placeholder="Years"></label></div>
 <label>Gender<select id="patientGender"><option value="">Not specified</option><option>Female</option><option>Male</option><option>Other</option></select></label><label>General notes<textarea id="patientNotes" rows="3" maxlength="2000" placeholder="Optional notes"></textarea></label><p id="formError" class="form-error" role="alert"></p><div class="dialog-actions"><button type="button" id="cancelForm" class="secondary">Cancel</button><button type="submit" class="primary">Save patient</button></div></form></dialog>
-<dialog id="detailDialog" class="dialog"><div class="dialog-head"><div><p class="eyebrow">PATIENT DETAILS</p><h2 id="detailName">Patient</h2></div><button id="detailClose" class="icon-btn">×</button></div><div id="detailBody" class="detail-body"></div><div class="dialog-actions"><button id="deletePatientBtn" class="danger">Delete</button><span class="spacer"></span><button id="editPatientBtn" class="secondary">Edit</button><button id="detailDone" class="primary">Done</button></div></dialog>
+<dialog id="detailDialog" class="dialog"><div class="dialog-head"><div><p class="eyebrow">PATIENT DETAILS</p><h2 id="detailName">Patient</h2></div><button id="detailClose" class="icon-btn">×</button></div><div id="detailBody" class="detail-body"></div>
+<div class="visit-section"><div class="visit-section-head"><div><h3>Clinical visits</h3><p class="muted">এই patient-এর visit history</p></div><button id="addVisitBtn" class="primary small">＋ Add visit</button></div><div id="visitHistory" class="visit-history"></div></div>
+<div class="dialog-actions"><button id="deletePatientBtn" class="danger">Delete</button><span class="spacer"></span><button id="editPatientBtn" class="secondary">Edit</button><button id="detailDone" class="primary">Done</button></div></dialog>
+<dialog id="visitDialog" class="dialog">
+<form id="visitForm">
+<div class="dialog-head"><div><p class="eyebrow">CLINICAL RECORD</p><h2 id="visitDialogTitle">Add clinical visit</h2></div><button type="button" id="visitClose" class="icon-btn">×</button></div>
+<input id="visitId" type="hidden">
+<label>Visit date <span class="required">*</span><input id="visitDate" type="date" required></label>
+<label>Chief complaint<textarea id="visitComplaint" rows="2" maxlength="1500" placeholder="Patient's main complaint"></textarea></label>
+<label>History<textarea id="visitHistoryText" rows="2" maxlength="2000" placeholder="Relevant history"></textarea></label>
+<label>Examination<textarea id="visitExamination" rows="2" maxlength="2500" placeholder="Clinical findings"></textarea></label>
+<label>Diagnosis<textarea id="visitDiagnosis" rows="2" maxlength="1500" placeholder="Working/final diagnosis"></textarea></label>
+<label>Treatment done<textarea id="visitTreatment" rows="2" maxlength="2500" placeholder="Treatment performed today"></textarea></label>
+<label>Advice<textarea id="visitAdvice" rows="2" maxlength="2000" placeholder="Advice given"></textarea></label>
+<label>Prescription<textarea id="visitPrescription" rows="2" maxlength="2500" placeholder="Optional prescription notes"></textarea></label>
+<div class="form-row"><label>Next visit<input id="visitNextDate" type="date"></label><label>Follow-up status<select id="visitFollowup"><option value="">Not set</option><option>Required</option><option>Scheduled</option><option>Completed</option><option>Not required</option></select></label></div>
+<p id="visitFormError" class="form-error" role="alert"></p>
+<div class="dialog-actions"><button type="button" id="visitCancel" class="secondary">Cancel</button><button type="submit" class="primary">Save visit</button></div>
+</form></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite"></div><script src="./app.js"></script>
 </body></html>

@@ -1,3 +1,3 @@
-DentalFlow V1 — Minimal Foundation
+DentalFlow V2 — Continuous Clinical Workflow
 Build: 2026-10-10
-Scope: local-first patient records, search, edit/delete, JSON backup/restore, PWA shell.
+Includes V1 patient foundation plus patient-linked clinical visits, edit/delete visit records, and versioned JSON backup/restore.

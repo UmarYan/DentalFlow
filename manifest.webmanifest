@@ -1,7 +1,7 @@
 {
-  "name": "DentalFlow — Clinic Workspace",
+  "name": "DentalFlow V2 — Clinical Workflow",
   "short_name": "DentalFlow",
-  "description": "Local-first patient records for a dental clinic",
+  "description": "Local-first patient records and clinical visit history",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
