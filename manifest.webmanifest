@@ -1,0 +1,19 @@
+{
+  "name": "DentalFlow — Clinic Workspace",
+  "short_name": "DentalFlow",
+  "description": "Local-first patient records for a dental clinic",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f8f7",
+  "theme_color": "#147d68",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

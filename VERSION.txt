@@ -1,0 +1,3 @@
+DentalFlow V1 — Minimal Foundation
+Build: 2026-10-10
+Scope: local-first patient records, search, edit/delete, JSON backup/restore, PWA shell.
