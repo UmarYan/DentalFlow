@@ -1,3 +1,3 @@
-DentalFlow V2 — Continuous Clinical Workflow
+DentalFlow V2.1 — Add Visit dialog fix
 Build: 2026-10-10
-Includes V1 patient foundation plus patient-linked clinical visits, edit/delete visit records, and versioned JSON backup/restore.
+Fix: Avoid opening two native modal dialogs at once. Add Visit closes patient details first; save/cancel/close returns to patient details. Existing IndexedDB database and patient/visit records are preserved.
