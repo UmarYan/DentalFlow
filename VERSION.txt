@@ -1,3 +1,5 @@
-DentalFlow V2.1 — Add Visit dialog fix
+DentalFlow V3 — Payments & Clinic Accounts
 Build: 2026-10-10
-Fix: Avoid opening two native modal dialogs at once. Add Visit closes patient details first; save/cancel/close returns to patient details. Existing IndexedDB database and patient/visit records are preserved.
+Base: V2.1 Clinical Workflow
+Database: IndexedDB version 3; upgrades existing V1/V2 database without clearing patients or visits.
+Features: patient records, clinical visits, collections, clinic expenses, monthly totals, transaction edit/delete, JSON backup/restore version 3.
