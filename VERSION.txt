@@ -1,5 +1,2 @@
-DentalFlow V3 — Payments & Clinic Accounts
-Build: 2026-10-10
-Base: V2.1 Clinical Workflow
-Database: IndexedDB version 3; upgrades existing V1/V2 database without clearing patients or visits.
-Features: patient records, clinical visits, collections, clinic expenses, monthly totals, transaction edit/delete, JSON backup/restore version 3.
+DentalFlow V4 — Follow-ups, Reports & Safety
+Based on V3. IndexedDB database and stores unchanged.
