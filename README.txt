@@ -1,17 +1,22 @@
-DentalFlow V7.7.8 — Unified Patient View
+DentalFlow V8.0 — Encounter Workflow Foundation
 
-Based on DentalFlow V7.7.5 Sky Blue Menu Header Update.
+Base: DentalFlow V7.8.0 (the build identified by the user as V7.8.0; source ZIP originally named V7.7.11).
 
-Focused update:
-- Patient list now opens the full patient profile directly; no mandatory context-card step.
-- Added a compact overview with recent visit, next appointment, due balance, next follow-up, active plans, visit count and medical alert when present.
-- Added quick actions for New Visit, Appointment, Treatment/Visit History and Payment/Bill.
-- Existing profile sections and their data links are retained: demographics, tooth status, treatment plans, billing, timeline, clinical visit history, editing and patient deletion.
-- Updated service-worker cache version so the new interface can be picked up after deployment.
+Scope of this staged V8.0 step:
+- Adds an encounters collection to the app data model without deleting or rewriting existing visit, plan, appointment, bill, reminder, or payment records.
+- Normalizes encounter IDs, patient links, optional appointment links, status, and references to related records.
+- Changes startup handling so malformed saved JSON / unexpected data roots are not silently replaced by empty data. The app shows its existing load-error screen with a more explicit data-preservation warning.
+- Changes the service-worker cache name to prevent reuse of the prior version's cache.
+- Keeps the existing app screens and current feature behavior in place for this foundation stage; the unified Encounter Workspace is NOT yet implemented.
 
-Deployment note: replace the existing app files with the contents of this ZIP in the same GitHub Pages repository. Do not delete the browser/local app data. Before updating a live clinic app, export a Safety Snapshot / JSON backup. This source ZIP contains app files only, not patient data.
+Data safety:
+- Before deploying any app update, export a DentalFlow JSON backup and keep a copy outside the browser.
+- Do not clear browser/site storage during deployment.
+- This ZIP contains app files only, not patient records.
+- If saved data cannot be parsed, do not clear app storage or repeatedly save new data over it. Restore only from a known-good backup after checking the issue.
 
-
-V7.7.8 Unified Patient View layout update: patient details moved above overview; patient sections ordered Current Tooth Status, Treatment Plans, Visit History, Billing & Payments, Timeline. Existing patient data schema is unchanged.
-
-V7.7.8: Patient profile cleaned; section order is Current Tooth Status, Treatment Plans, Billing & Payments, Visit History, Timeline. Create actions are on the profile FAB.
+Validation performed:
+- ZIP integrity check.
+- All three inline JavaScript blocks passed Node syntax checks.
+- Data-model smoke test: legacy-shaped data normalizes with an empty encounters array; malformed saved JSON throws rather than writing an empty dataset over it.
+- Interactive Android/browser workflow, real clinic data migration, and payment/visit UI regression testing were NOT run in this environment. Treat this as a foundation build for further testing, not as a fully validated final V8.0 release.
