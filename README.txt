@@ -1,9 +1,9 @@
-DentalFlow V8.5.0 - Encounter Record Linking
+DentalFlow V8.6.0 — Encounter Record Summary
 
-Built on the V8.4.0 Encounter Workflow Launcher. Clinical Visit, Treatment Plan and Bill records created from an explicitly chosen in-progress Encounter now receive a safe encounter link. The Encounter stores the linked visit ID and de-duplicated plan/bill IDs. Opening forms elsewhere does not implicitly attach records to an encounter.
+Based on the supplied V8.5.0 Encounter Record Linking ZIP. This version adds a read-only summary of linked clinical visits, treatment plans and bills inside each Encounter card. It displays existing visit diagnosis/reason, plan title/status, bill title, and a recorded follow-up date where available. Missing linked records are flagged rather than silently removed.
 
-Safety boundaries: existing history is not batch-migrated or rewritten; treatment plan item statuses are not changed; bill line items, totals, payment transactions and due calculations are not changed by linking; follow-up dates do not create appointments. Linking is additive metadata only.
+Safety boundaries: this is a display-only change. It does not create, delete, migrate or relink records; does not change plan status; does not calculate or rewrite bill totals, payments or due; and does not turn follow-up dates into appointments. Existing patient history is not batch-modified.
 
-Before deployment: export a JSON backup and keep it outside the browser. Upload the ZIP contents to the repository root, preserving file names and relative paths. Do not clear browser/site storage.
+Deployment: export a JSON backup and keep it outside the browser before replacing files. Upload all ZIP contents to the repository root, preserving relative paths. Do not clear browser/site storage.
 
-Checks: JavaScript syntax checks, ZIP integrity, and focused static assertions passed. Android interactive testing and testing against real patient data have not been performed.
+Checks performed: source ZIP integrity, output ZIP integrity, expected patch presence, and JavaScript syntax checks for inline scripts. Interactive Android testing and validation with real patient data have not been performed. Treat as a test build until verified.
