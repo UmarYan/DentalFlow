@@ -1,7 +1,7 @@
 {
   "name": "DentalFlow",
   "short_name": "DentalFlow",
-  "description": "Private offline-first dental clinic management app.",
+  "description": "Private offline-first dental clinic management app — Encounter Workflow Launcher.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

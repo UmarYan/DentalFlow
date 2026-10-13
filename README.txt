@@ -1,17 +1,9 @@
-DentalFlow V8.3.0 — Encounter Workspace Preview
+DentalFlow V8.4.0 — Encounter Workflow Launcher
 
-Built from V8.2.0 Encounter Safety Check.
+This build adds patient-context quick actions from an in-progress Encounter to the existing Clinical Visit, Treatment Plan, and Bill forms. The patient is preselected to reduce repeated entry.
 
-New in this staged preview:
-- Adds an Encounter Workspace screen accessible from the hamburger menu.
-- Allows starting one explicit encounter for a selected existing patient.
-- Shows recent encounters and whether an appointment/clinical visit link exists.
-- Offers a deliberate status change to mark an in-progress encounter complete.
-- Avoids automatically linking old records or rewriting clinical, plan, bill, payment, appointment, or reminder data.
+Important limitations: records are NOT automatically linked to the Encounter in this version. No legacy records are automatically migrated or rewritten. Bills and payment transactions continue to use the existing billing workflow.
 
-Important limitations:
-- This is a first workspace preview, not the finished unified workflow. Starting an encounter does not yet auto-link subsequent clinical visits, plans, bills, payments or follow-ups.
-- Existing forms remain separate.
-- Android/browser interactive testing and real clinic-data migration have not been performed.
+Before deployment: export a JSON backup and keep it outside the browser. Upload the contents of this ZIP to the repository root, preserving file names and relative paths. Do not clear browser storage.
 
-Before deployment: export a JSON backup and keep it outside the browser. Test using a separate copy/test data first. Do not clear site storage. Upload the ZIP contents to the repository root, preserving filenames.
+Checks performed: JavaScript syntax check, ZIP integrity check. Android interactive testing and testing against real patient data have not been performed.
