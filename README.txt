@@ -1,9 +1,9 @@
-DentalFlow V8.6.0 — Encounter Record Summary
+DentalFlow V8.7.0 — Encounter Link Check
 
-Based on the supplied V8.5.0 Encounter Record Linking ZIP. This version adds a read-only summary of linked clinical visits, treatment plans and bills inside each Encounter card. It displays existing visit diagnosis/reason, plan title/status, bill title, and a recorded follow-up date where available. Missing linked records are flagged rather than silently removed.
+Based on DentalFlow V8.6.0 Encounter Record Summary. Adds a read-only Encounter Link Check panel to review missing encounter-linked visits/plans/bills, patient-reference mismatches, and possible same-patient records that may need manual review.
 
-Safety boundaries: this is a display-only change. It does not create, delete, migrate or relink records; does not change plan status; does not calculate or rewrite bill totals, payments or due; and does not turn follow-up dates into appointments. Existing patient history is not batch-modified.
+Safety boundaries: the check never creates, deletes, or relinks records; never changes treatment status, appointments, follow-up dates, bills, payments, or dues. Same-patient matches are suggestions only because date similarity does not prove that records belong to the same encounter. Existing data schema and local-storage key are preserved.
 
-Deployment: export a JSON backup and keep it outside the browser before replacing files. Upload all ZIP contents to the repository root, preserving relative paths. Do not clear browser/site storage.
+Deployment: export a JSON backup and keep it outside the browser before replacing files. Upload all ZIP contents to the repository root, preserving file paths. Do not clear browser/site storage.
 
-Checks performed: source ZIP integrity, output ZIP integrity, expected patch presence, and JavaScript syntax checks for inline scripts. Interactive Android testing and validation with real patient data have not been performed. Treat as a test build until verified.
+Checks performed: source/output ZIP integrity, expected UI/function/cache-version patch, and JavaScript syntax check for inline scripts. These are code-level checks only; interactive Android testing and validation with real patient data have not been performed. Treat as a test build until verified.
