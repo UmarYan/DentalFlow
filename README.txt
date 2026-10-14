@@ -1,29 +1,16 @@
-DentalFlow V8.10.1 - Encounter Return Fix
+DentalFlow V7.8.7 — Clinical Layout & Follow-up Time
 
-Built as a focused fix on V8.10.0 Follow-up Status.
+Base: DentalFlow V7.8.6 Workflow Error Recovery.
 
-Fix:
-- When a Clinical Visit is opened from an in-progress Encounter, saving it now returns to Encounter Workspace instead of sending the user to Patient Profile.
-- The existing encounter visit link is preserved by the current save logic.
-- Clinical visits opened outside an Encounter keep the previous behavior and return to Patient Profile.
-- Service-worker cache name updated.
+Changes in this build:
+- Patient Workflow now shows Chief complaint → Examination → Treatment done directly under Clinical, in that order.
+- History, Diagnosis, Prescription and Advice remain inside the expandable “More clinical details” section.
+- Follow-up includes Next visit date plus an optional time picker.
+- The optional follow-up time is stored with the visit and associated reminder, included in draft recovery, and shown in reminder details/cards and timeline where supported.
+- Existing visit/reminder records are normalized with empty time values when they predate this update; existing data and internal associations are preserved.
+- Service-worker cache version updated.
 
-Important scope limitation:
-- This is a navigation fix, not full workflow integration. Treatment plans, bills/payments and follow-ups still use existing screens and must be explicitly linked/verified. Do not assume all encounter workflow steps are fully connected.
-
-Safety:
-- ZIP contains app files only, no patient data.
-- Before deployment, export a DentalFlow JSON backup and keep the previous ZIP. Do not clear browser/site storage.
-- Test on device with a test patient/record first. Confirm that saving a visit opened from Encounter Workspace returns to Encounter Workspace and shows the linked visit. Also test a normal visit opened outside Encounter to confirm it still returns to Patient Profile.
-- Syntax/archive checks do not replace full Android workflow testing.
-
-Deploy: extract contents into the existing GitHub Pages repository, commit, wait for Pages to publish, then refresh/reopen the app.
-
-
-V8.11.0 Simple Clinic Flow update:
-- Removed Encounter Workspace screen and its menu entry.
-- Removed Advanced links UI from Clinical Visit and Treatment Plan forms.
-- Removed Open linked records shortcut panel from contextual record details.
-- Existing legacy encounter/link data is preserved in local storage; this UI simplification does not delete patient records.
-- Standard workflow remains Patient Profile -> Clinical Visit / Treatment Plan / Billing using existing screens.
-- Technical syntax and ZIP checks are required; real Android workflow still needs user verification.
+Testing notes:
+- JavaScript syntax and ZIP integrity checks should be run before deployment.
+- Android end-to-end testing with a fictional patient and backup/restore acceptance testing are still required.
+- Export a normal JSON backup before deployment. Do not clear Chrome site data.
