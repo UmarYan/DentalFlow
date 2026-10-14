@@ -1,4 +1,4 @@
-DentalFlow V8.8.0 — Encounter Clinical Entry
+DentalFlow V8.9.0 — Encounter Clinical Entry
 
 New workflow improvement: starting an encounter now opens the Clinical Visit form for the selected patient and sets an encounter context. When that visit is saved, the existing saveVisit logic links it to the active encounter. If the patient already has an in-progress encounter with no saved visit, the app offers to resume it and open Clinical Visit. If a visit is already linked, the app offers to open the patient profile instead.
 
@@ -7,3 +7,4 @@ Safety boundaries: no existing records are automatically relinked, deleted, or r
 Deployment: export a JSON backup and keep it outside the browser before replacing files. Upload all ZIP contents to the repository root, preserving file paths. Do not clear browser/site storage.
 
 Checks performed: ZIP integrity, source patch presence, and inline JavaScript syntax checks. These are code-level checks only; interactive Android testing and validation with real patient data have not been performed. Treat as a test build until verified.
+\n\nV8.9.0 Treatment Workflow update:\n- Adds encounter-scoped status controls for treatment items in linked treatment plans.\n- Supports marking linked items In Progress or Completed with confirmation for Completed.\n- Validates patient, active encounter, and existing plan/encounter links before changing status.\n- Does not create a clinical treatment note or bill when marking an item Completed.\n- Browser/device testing is still required before relying on this version in clinic.\n
