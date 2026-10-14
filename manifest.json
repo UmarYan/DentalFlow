@@ -1,7 +1,7 @@
 {
-  "name": "DentalFlow V8.9.0 — Treatment Workflow",
+  "name": "DentalFlow V8.10.0",
   "short_name": "DentalFlow",
-  "description": "Private offline-first dental clinic management app — Encounter Clinical Entry.",
+  "description": "Dental clinic workflow with explicit follow-up status tracking",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

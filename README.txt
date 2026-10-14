@@ -1,10 +1,18 @@
-DentalFlow V8.9.0 — Encounter Clinical Entry
+DentalFlow V8.10.0 — Follow-up Status
 
-New workflow improvement: starting an encounter now opens the Clinical Visit form for the selected patient and sets an encounter context. When that visit is saved, the existing saveVisit logic links it to the active encounter. If the patient already has an in-progress encounter with no saved visit, the app offers to resume it and open Clinical Visit. If a visit is already linked, the app offers to open the patient profile instead.
+Built from DentalFlow V8.9.0 Treatment Workflow.
 
-Safety boundaries: no existing records are automatically relinked, deleted, or rewritten. The feature uses the current local-storage schema and preserves the existing storage key. A new encounter is saved before opening clinical entry; if saving fails, the visit form is not opened. Canceling/closing the visit form clears the encounter context through the existing closeSheet handler.
+Update:
+- Adds an explicit Missed status to follow-up reminders.
+- Adds a one-tap Missed action to active reminder cards.
+- Preserves Pending, Done, and Snoozed behavior.
+- Normalization accepts the new status while retaining existing reminder and clinical/financial records.
+- Service-worker cache name bumped for update awareness.
 
-Deployment: export a JSON backup and keep it outside the browser before replacing files. Upload all ZIP contents to the repository root, preserving file paths. Do not clear browser/site storage.
+Safety notes:
+- This ZIP contains app files only; it does not contain patient data.
+- Before replacing deployed files, download a DentalFlow JSON data backup and keep the previous source ZIP.
+- Do not clear browser/site storage.
+- Syntax and archive checks are not a substitute for real-device workflow testing. Verify a test reminder can be marked Missed, edited back to Pending, and that patient records, visits, plans, bills and payments remain present.
 
-Checks performed: ZIP integrity, source patch presence, and inline JavaScript syntax checks. These are code-level checks only; interactive Android testing and validation with real patient data have not been performed. Treat as a test build until verified.
-\n\nV8.9.0 Treatment Workflow update:\n- Adds encounter-scoped status controls for treatment items in linked treatment plans.\n- Supports marking linked items In Progress or Completed with confirmation for Completed.\n- Validates patient, active encounter, and existing plan/encounter links before changing status.\n- Does not create a clinical treatment note or bill when marking an item Completed.\n- Browser/device testing is still required before relying on this version in clinic.\n
+Deploy: extract ZIP contents into the existing GitHub Pages repository, commit, wait for Pages to publish, then refresh/reopen the app.
