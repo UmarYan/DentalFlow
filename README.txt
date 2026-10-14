@@ -18,3 +18,12 @@ Safety:
 - Syntax/archive checks do not replace full Android workflow testing.
 
 Deploy: extract contents into the existing GitHub Pages repository, commit, wait for Pages to publish, then refresh/reopen the app.
+
+
+V8.11.0 Simple Clinic Flow update:
+- Removed Encounter Workspace screen and its menu entry.
+- Removed Advanced links UI from Clinical Visit and Treatment Plan forms.
+- Removed Open linked records shortcut panel from contextual record details.
+- Existing legacy encounter/link data is preserved in local storage; this UI simplification does not delete patient records.
+- Standard workflow remains Patient Profile -> Clinical Visit / Treatment Plan / Billing using existing screens.
+- Technical syntax and ZIP checks are required; real Android workflow still needs user verification.
