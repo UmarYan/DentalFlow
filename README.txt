@@ -1,18 +1,20 @@
-DentalFlow V8.10.0 — Follow-up Status
+DentalFlow V8.10.1 - Encounter Return Fix
 
-Built from DentalFlow V8.9.0 Treatment Workflow.
+Built as a focused fix on V8.10.0 Follow-up Status.
 
-Update:
-- Adds an explicit Missed status to follow-up reminders.
-- Adds a one-tap Missed action to active reminder cards.
-- Preserves Pending, Done, and Snoozed behavior.
-- Normalization accepts the new status while retaining existing reminder and clinical/financial records.
-- Service-worker cache name bumped for update awareness.
+Fix:
+- When a Clinical Visit is opened from an in-progress Encounter, saving it now returns to Encounter Workspace instead of sending the user to Patient Profile.
+- The existing encounter visit link is preserved by the current save logic.
+- Clinical visits opened outside an Encounter keep the previous behavior and return to Patient Profile.
+- Service-worker cache name updated.
 
-Safety notes:
-- This ZIP contains app files only; it does not contain patient data.
-- Before replacing deployed files, download a DentalFlow JSON data backup and keep the previous source ZIP.
-- Do not clear browser/site storage.
-- Syntax and archive checks are not a substitute for real-device workflow testing. Verify a test reminder can be marked Missed, edited back to Pending, and that patient records, visits, plans, bills and payments remain present.
+Important scope limitation:
+- This is a navigation fix, not full workflow integration. Treatment plans, bills/payments and follow-ups still use existing screens and must be explicitly linked/verified. Do not assume all encounter workflow steps are fully connected.
 
-Deploy: extract ZIP contents into the existing GitHub Pages repository, commit, wait for Pages to publish, then refresh/reopen the app.
+Safety:
+- ZIP contains app files only, no patient data.
+- Before deployment, export a DentalFlow JSON backup and keep the previous ZIP. Do not clear browser/site storage.
+- Test on device with a test patient/record first. Confirm that saving a visit opened from Encounter Workspace returns to Encounter Workspace and shows the linked visit. Also test a normal visit opened outside Encounter to confirm it still returns to Patient Profile.
+- Syntax/archive checks do not replace full Android workflow testing.
+
+Deploy: extract contents into the existing GitHub Pages repository, commit, wait for Pages to publish, then refresh/reopen the app.
