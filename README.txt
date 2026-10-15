@@ -1,16 +1,14 @@
-DentalFlow V7.8.7 — Clinical Layout & Follow-up Time
+DentalFlow V7.8.9 — Blank Screen & Raw-Code Fix
 
-Base: DentalFlow V7.8.6 Workflow Error Recovery.
+Purpose:
+- Fixes a malformed script/HTML boundary in V7.8.8 that caused JavaScript source to appear as visible text on the screen and could interfere with home-screen interaction.
+- Retains the V7.8.8 Smart Multi-Entry changes: type an item and press Enter to add it, with no per-item Add button; separate item suggestions; edit/remove individual entries; paste multiple lines as separate entries.
+- Updates service-worker cache version so the corrected app assets can be fetched.
 
-Changes in this build:
-- Patient Workflow now shows Chief complaint → Examination → Treatment done directly under Clinical, in that order.
-- History, Diagnosis, Prescription and Advice remain inside the expandable “More clinical details” section.
-- Follow-up includes Next visit date plus an optional time picker.
-- The optional follow-up time is stored with the visit and associated reminder, included in draft recovery, and shown in reminder details/cards and timeline where supported.
-- Existing visit/reminder records are normalized with empty time values when they predate this update; existing data and internal associations are preserved.
-- Service-worker cache version updated.
+Before deployment:
+- Export a JSON backup first. Do not clear Chrome site data.
+- Replace repository files with the ZIP contents. If the old screen remains, verify the deployed files and let the service-worker update take effect; do not delete site data because patient records may be stored there.
 
-Testing notes:
-- JavaScript syntax and ZIP integrity checks should be run before deployment.
-- Android end-to-end testing with a fictional patient and backup/restore acceptance testing are still required.
-- Export a normal JSON backup before deployment. Do not clear Chrome site data.
+Testing status:
+- Automated JavaScript syntax and ZIP integrity checks are required/checked during packaging.
+- Real Android end-to-end testing, data migration, draft recovery, and backup/restore have not been verified in this environment. Test with a fictional patient before using in clinic.
