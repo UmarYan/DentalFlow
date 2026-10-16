@@ -1,4 +1,4 @@
-DentalFlow V7.8.21 — Compact Home & Date Status
+DentalFlow V7.8.22 — Compact Expandable Cards & Date-wise Visits
 
 Base: DentalFlow V7.8.19 — Chairside Workflow Revamp.
 
@@ -23,3 +23,11 @@ Interaction safeguards:
 - This is an in-app reminder experience; SMS, WhatsApp and push notification delivery are not added in this update.
 
 Validation performed: JavaScript syntax checks passed; duplicate HTML IDs check passed; ZIP integrity check performed after packaging. Full Android/browser end-to-end interaction testing has not been performed here, so test on a backup/test dataset before production deployment.
+
+
+V7.8.22 update notes
+- Compact-by-default patient cards across appointments, queue, follow-ups and reminders; tap the card body to expand optional details. Action buttons remain visible and independently tappable.
+- Appointment cards use red for overdue dates, green for today, and blue for upcoming dates. Queue cards for today use green status styling.
+- Clinical Visits are grouped by date, with newest dates first and items sorted by time within each date. Home Today's visits also shows a date group.
+- Existing records and core data structures are retained.
+- Validation: ZIP integrity and inline JavaScript syntax checked. Full Android end-to-end testing has not been performed.
