@@ -1,8 +1,11 @@
-DentalFlow V7.8.20 — Chairside Home & Navigation Revamp
+DentalFlow V7.8.21 — Compact Home & Date Status
 
 Base: DentalFlow V7.8.19 — Chairside Workflow Revamp.
 
 Implemented in this update:
+- Removed the legacy extra Home follow-up strip that duplicated follow-ups already shown in the Follow-up workspace; the single main Follow-up list remains the clearly labeled source.
+- Compact follow-up/reminder cards reduce vertical padding, typography and action spacing while preserving usable touch targets.
+- Today groups/cards use green accents; Overdue groups/cards use red accents.
 - Home now embeds the paired Appointments / Queue workspace and Follow-up / Reminders workspace.
 - Home paired workspaces support both tab taps and independent horizontal swipe; tab active state stays in sync.
 - Primary bottom navigation is Home, Patients, Visits, Finance, More.
