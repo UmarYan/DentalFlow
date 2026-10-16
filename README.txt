@@ -1,20 +1,22 @@
-DentalFlow V7.8.19 — Chairside Workflow Revamp
+DentalFlow V7.8.20 — Chairside Home & Navigation Revamp
 
-Base: DentalFlow V7.8.18 — Reminder Modal & Icon Actions.
+Base: DentalFlow V7.8.19 — Chairside Workflow Revamp.
 
-Chairside UX updates:
-- Appointments / Queue and Follow-up / Reminders now use paired tabs within the same workspace.
-- Tap a tab or swipe horizontally to switch within that pair; vertical scrolling remains available.
-- Tabs remain sticky while the workspace scrolls.
-- Active appointments and follow-ups/reminders are grouped by date (Overdue, Today, Tomorrow, then later dates) and sorted by time within each group.
-- Completed appointments, queue visits, follow-ups and reminders are separated from active lists in expandable Completed sections.
-- Queue is limited to today's checked-in active patients; completed queue visits are shown separately. Walk-ins remain supported.
-- Key chairside actions use compact icon buttons with accessible labels and tooltips.
-- Appointment completion does not automatically mark a linked follow-up complete; these statuses remain independent.
-- Existing patient, clinical visit, treatment/service, billing, smart suggestion, backup and record data structures are retained.
+Implemented in this update:
+- Home now embeds the paired Appointments / Queue workspace and Follow-up / Reminders workspace.
+- Home paired workspaces support both tab taps and independent horizontal swipe; tab active state stays in sync.
+- Primary bottom navigation is Home, Patients, Visits, Finance, More.
+- Primary workspace navigation supports horizontal swipe between Home, Patients, Visits, Finance and More, while vertical scrolling remains available.
+- More provides organized access to Appointments & Queue, Follow-ups & Reminders, Treatment Plans, Reports, Global Search, Settings, Backup and Restore.
+- Finance is the renamed bottom-navigation entry for the existing Billing & Payments view; underlying billing/payment view and data remain unchanged.
+- Home shows the same rendered appointment, queue, follow-up and reminder records from the existing modules rather than creating duplicate records.
+- Queue rendering is explicitly refreshed as part of the main render cycle so the Home Queue panel stays synchronized.
+- Existing patient, clinical visit, treatment/service, billing, payment, smart suggestion, backup/restore and record structures were retained.
 
-Reminder notes:
-- In-app reminders do not send SMS, WhatsApp or push notifications.
-- This release focuses on presentation/navigation and chairside list handling; validate on a test dataset before deployment.
+Interaction safeguards:
+- Horizontal navigation ignores inputs, textareas, selects, buttons, modal sheets, and paired tab controls.
+- Home paired-workspace swipe is independent from primary navigation swipe.
+- Appointment, queue, follow-up and reminder statuses remain separate; completion does not cascade to unrelated records.
+- This is an in-app reminder experience; SMS, WhatsApp and push notification delivery are not added in this update.
 
-Validation performed for this package: JavaScript syntax check and ZIP integrity check. Full Android/browser end-to-end interaction testing has not been performed here.
+Validation performed: JavaScript syntax checks passed; duplicate HTML IDs check passed; ZIP integrity check performed after packaging. Full Android/browser end-to-end interaction testing has not been performed here, so test on a backup/test dataset before production deployment.
