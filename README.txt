@@ -1,4 +1,4 @@
-DentalFlow V7.8.17 — Simplified Appointment, Queue & Follow-up
+DentalFlow V7.8.18 — Simplified Appointment, Queue & Follow-up
 
 Base: DentalFlow V7.8.16 — Connected Workflow (based on V7.8.13 Workflow Smart Suggestions).
 
@@ -13,3 +13,5 @@ UX updates:
 - Existing records are preserved; this update changes presentation and navigation only.
 
 Validation performed: JavaScript syntax checks, ZIP integrity, HTML structure and duplicate-ID checks. Full Android/browser end-to-end testing has not been performed here. Test using a fictional patient before deployment.
+
+V7.8.18 fixes the Reminder bottom-sheet markup and mobile overflow, and converts requested workflow actions to accessible icon buttons (tooltips/aria labels retained).
