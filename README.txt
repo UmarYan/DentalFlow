@@ -1,33 +1,11 @@
-DentalFlow V7.8.22 — Compact Expandable Cards & Date-wise Visits
-
-Base: DentalFlow V7.8.19 — Chairside Workflow Revamp.
+DentalFlow V7.8.29 — Modern Compact Finance & UX
 
 Implemented in this update:
-- Removed the legacy extra Home follow-up strip that duplicated follow-ups already shown in the Follow-up workspace; the single main Follow-up list remains the clearly labeled source.
-- Compact follow-up/reminder cards reduce vertical padding, typography and action spacing while preserving usable touch targets.
-- Today groups/cards use green accents; Overdue groups/cards use red accents.
-- Home now embeds the paired Appointments / Queue workspace and Follow-up / Reminders workspace.
-- Home paired workspaces support both tab taps and independent horizontal swipe; tab active state stays in sync.
-- Primary bottom navigation is Home, Patients, Visits, Finance, More.
-- Primary workspace navigation supports horizontal swipe between Home, Patients, Visits, Finance and More, while vertical scrolling remains available.
-- More provides organized access to Appointments & Queue, Follow-ups & Reminders, Treatment Plans, Reports, Global Search, Settings, Backup and Restore.
-- Finance is the renamed bottom-navigation entry for the existing Billing & Payments view; underlying billing/payment view and data remain unchanged.
-- Home shows the same rendered appointment, queue, follow-up and reminder records from the existing modules rather than creating duplicate records.
-- Queue rendering is explicitly refreshed as part of the main render cycle so the Home Queue panel stays synchronized.
-- Existing patient, clinical visit, treatment/service, billing, payment, smart suggestion, backup/restore and record structures were retained.
+- Compact, modern Bill rows with patient, total, date/title, paid/due balance, status, and contextual info.
+- Bill rows expand inline to reveal actions and compact payment-history rows; payment edit remains attached to its existing bill/payment record.
+- Compact visual treatment for payment history and consistent modern spacing, borders, controls, and responsive styling.
+- Existing bill totals, payment history, due calculations, storage schema, and record IDs are preserved; no financial migration is introduced.
+- Updated service-worker cache key and app version metadata.
 
-Interaction safeguards:
-- Horizontal navigation ignores inputs, textareas, selects, buttons, modal sheets, and paired tab controls.
-- Home paired-workspace swipe is independent from primary navigation swipe.
-- Appointment, queue, follow-up and reminder statuses remain separate; completion does not cascade to unrelated records.
-- This is an in-app reminder experience; SMS, WhatsApp and push notification delivery are not added in this update.
-
-Validation performed: JavaScript syntax checks passed; duplicate HTML IDs check passed; ZIP integrity check performed after packaging. Full Android/browser end-to-end interaction testing has not been performed here, so test on a backup/test dataset before production deployment.
-
-
-V7.8.22 update notes
-- Compact-by-default patient cards across appointments, queue, follow-ups and reminders; tap the card body to expand optional details. Action buttons remain visible and independently tappable.
-- Appointment cards use red for overdue dates, green for today, and blue for upcoming dates. Queue cards for today use green status styling.
-- Clinical Visits are grouped by date, with newest dates first and items sorted by time within each date. Home Today's visits also shows a date group.
-- Existing records and core data structures are retained.
-- Validation: ZIP integrity and inline JavaScript syntax checked. Full Android end-to-end testing has not been performed.
+Validation performed: JavaScript syntax checks for inline script blocks; HTML structure checks; ZIP integrity and required-file checks.
+Not performed: full end-to-end testing on a real Android device or live patient dataset. Please make a Safety Snapshot / JSON backup before deployment.
