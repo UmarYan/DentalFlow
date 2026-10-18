@@ -1,12 +1,17 @@
-DentalFlow V7.8.32 — Modern Elegant UI/UX & Workflow Integration
+DentalFlow V7.8.33 — Smart Collapsible Home
 
-Includes V7.8.30 and V7.8.31 plus:
-- Consistent compact spacing, elegant modern surfaces, focus states and responsive controls.
-- Advanced Search adds matching appointments, follow-ups, reminders, bills, payments and treatment plans to existing results where the existing search view provides a compatible input/results host.
-- Clinical Visit details now route Edit to the selected visit ID.
-- Existing contextual detail patterns remain inline; no new popup framework was introduced.
+Based on DentalFlow V7.8.32.
 
-Safety notes:
-- Data schema is additive only for bill/payment correction history.
-- Existing data is not intentionally cleared or migrated.
-- Backup before deployment. Automated checks do not replace full clinical/financial end-to-end tests on the target Android device.
+Home screen improvement:
+- Appointments, Queue, Follow-ups, and Reminders now use individual compact collapsible sections.
+- Each section header stays visible and shows a relevant count and concise status summary.
+- Queue auto-expands when active waiting/in-treatment patients exist.
+- Follow-ups and Reminders auto-expand when due today or overdue items exist.
+- Appointments default to collapsed to keep Home compact.
+- Manual expand/collapse preference is remembered for the current day.
+- Expanding/collapsing is UI-only and does not change clinical, appointment, reminder, follow-up, or financial records.
+- Existing detail lists, record actions, and View All destinations are retained.
+
+Validation performed: ZIP integrity, HTML parsing, JavaScript syntax checks, and static checks for expected Home section IDs/functions. Full real-device end-to-end clinical/finance testing has not been performed.
+
+Before deployment: export an external JSON backup and test the app with sample records.
