@@ -1,16 +1,10 @@
-DentalFlow V7.8.47 — Shared Form Integration Candidate
+DentalFlow V7.8.40 — Treatment Plan Workflow
 
-This package is based on the V7.8.46 PWA-assets-restored build. It fixes the visible version label and uses a distinct service-worker cache key, and includes all PWA files referenced by index.html.
+Changes:
+- Adds a visible Save visit + plan remaining treatment action. It saves the clinical visit, then opens a treatment plan prefilled with the visit examination/diagnosis context and links the plan to the visit.
+- Shows every treatment-plan item in the patient profile, with per-item status and scheduling actions.
+- Supports Scheduled as a treatment-item status. Scheduling an appointment marks the linked plan item Scheduled.
+- Starting a clinical visit from a linked appointment retains the plan/item link. Saving the visit marks the item Completed only when Treatment Done is documented; otherwise it becomes In progress.
+- Preserves existing patient/visit/plan/appointment records and adds no bulk migration.
 
-IMPORTANT STATUS: DEVELOPMENT / TEST CANDIDATE, NOT A VERIFIED FINAL RELEASE.
-
-The code contains a shared form-entry registry/controller that routes to existing Appointment, Clinical Visit, Treatment Plan, Follow-up, Bill, and Payment forms. This does NOT yet prove that Patient Workflow and standalone sections use one identical form field structure, validation path, and save implementation for all six record types. Do not assume that requirement is fully completed.
-
-Before deployment:
-1. Keep the currently deployed site unchanged.
-2. Make and verify a separate backup of clinic data.
-3. Test this package in a separate test deployment with dummy data.
-4. Test New/Edit for all six types, patient/visit/plan/bill linkage, multiple payments/outstanding calculations, and backup/restore.
-5. Only promote after those tests pass.
-
-Upload the contents of this ZIP to the publishing root only for a separate test deployment. Do not clear browser storage or delete existing clinic data as a deployment step.
+Validation performed: ZIP integrity, HTML parsing, and JavaScript syntax checks. Real Android end-to-end testing is not claimed. Back up the app's data before deployment.
