@@ -1,13 +1,14 @@
-DentalFlow V7.8.40 — Treatment Plan Workflow
+DentalFlow V7.8.44 — Smart Workflow Finalization
 
-Changes:
-- Adds a visible Save visit + plan remaining treatment action. It saves the clinical visit, then opens a treatment plan prefilled with the visit examination/diagnosis context and links the plan to the visit.
-- Shows every treatment-plan item in the patient profile, with per-item status and scheduling actions.
-- Supports Scheduled as a treatment-item status. Scheduling an appointment marks the linked plan item Scheduled.
-- Starting a clinical visit from a linked appointment retains the plan/item link. Saving the visit marks the item Completed only when Treatment Done is documented; otherwise it becomes In progress.
-- Preserves existing patient/visit/plan/appointment records and adds no bulk migration.
+Base: V7.8.42 Finance Layout Unified, carrying forward the V7.8.43 smart-workflow implementation.
 
-Validation performed: ZIP integrity, HTML parsing, and JavaScript syntax checks. Real Android end-to-end testing is not claimed. Back up the app's data before deployment.
+Changes in this build:
+- Keeps the existing Sky Blue theme, PWA assets, clinical workflow, treatment plans, billing, payments and backup/restore files.
+- Adds contextual optional Left and Delay reason fields to the appointment/queue form and stores the selected values on the appointment record.
+- Makes Follow-up Purpose optional; patient and due date remain required.
+- Keeps Cancellation Reason visible only for Cancelled status and No-show Reason visible only for No-show status.
+- Keeps reminder records linked to their originating appointment/follow-up and explicitly does not imply delivery; existing delivery status is preserved and defaults to Not sent.
+- Includes Left queue items in the completed/left queue history.
+- Updates service-worker cache version to avoid reusing the previous app cache.
 
-
-V7.8.42 update: Unified the Bills and Payments entry layouts with the compact Patient Workflow Billing & Payment section pattern. Bill item entry supports service → fee → Enter to add, retains tooth/area and quantity under More billing options, and keeps existing bill/payment save functions and record structure. Browser end-to-end workflow testing has not yet been performed; syntax and ZIP integrity checks passed.
+Validation performed for this build: ZIP integrity, JavaScript syntax checks for extracted inline script blocks (the main legacy script contains embedded HTML/script text and is not safely testable with a naive script-tag regex), HTML structure spot checks and required-feature string checks. Browser E2E was not performed, so this is an implementation build and not a fully browser-verified stable release. Back up existing clinic data before deployment.
