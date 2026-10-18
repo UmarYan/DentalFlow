@@ -15,3 +15,10 @@ Home screen improvement:
 Validation performed: ZIP integrity, HTML parsing, JavaScript syntax checks, and static checks for expected Home section IDs/functions. Full real-device end-to-end clinical/finance testing has not been performed.
 
 Before deployment: export an external JSON backup and test the app with sample records.
+
+
+V7.8.34 — Advanced Search category filtering fix; date-wise Clinical Visits and Finance grouping.
+- Selected category now limits search results to that type; All shows all matching record types.
+- Added Follow-ups, Reminders and Payments search categories.
+- Clinical Visits and Bills are grouped under date headings, with compact patient/record rows under each date.
+- Existing records and data schema are unchanged.
