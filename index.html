@@ -179,6 +179,20 @@ button.df-icon-action[aria-label="Delete"]{color:var(--danger)}
 .home-workspace .compact-patient-card{padding:7px 9px!important}
 @media(max-width:380px){.compact-patient-card{padding:6px 7px!important}.compact-patient-card .apt-actions button{min-width:34px;min-height:34px}}
 </style>
+
+<style id="df-v7835-adaptive-home-spacing">
+/* V7.8.35: compact empty states on Home without hiding useful feedback. */
+#home>.home-search-card{box-sizing:border-box;padding:12px!important;min-height:0!important;height:auto!important;}
+#home>.home-search-card .home-card-title{margin-bottom:7px!important;}
+#home>.home-search-card .search{margin-bottom:0!important;}
+#home>.home-search-card #homeResults{height:auto!important;min-height:0!important;margin:0!important;padding:0!important;}
+#home>.home-search-card #homeResults>.empty{display:block;box-sizing:border-box;margin:0!important;padding:6px 0 0!important;min-height:0!important;height:auto!important;text-align:left!important;font-size:12px!important;line-height:1.35!important;}
+#home>.home-search-card #homeResults>.list{margin-top:6px!important;}
+#home #todayList{box-sizing:border-box;min-height:0!important;height:auto!important;}
+#home #todayList.empty{display:block;margin:0!important;padding:7px 0 1px!important;min-height:0!important;height:auto!important;text-align:left!important;font-size:12px!important;line-height:1.35!important;}
+#home #todayList:not(.empty){margin-top:5px!important;}
+@media(max-width:560px){#home>.home-search-card{padding:11px!important;}#home>.home-search-card .home-card-title{margin-bottom:6px!important;}#home>.home-search-card #homeResults>.empty,#home #todayList.empty{font-size:11.5px!important;}}
+</style>
 </head><body>
 <div id="bootError" class="boot"><div class="bootbox"><h3>DentalFlow needs recovery</h3><p id="bootErrorText" class="muted">The app could not safely read its saved data. Do not reset or clear site data. Export the stored data first, then retry loading.</p><div class="actions" style="justify-content:center"><button class="btn secondary" onclick="exportRecoveryData()">Export stored data</button><button class="btn" onclick="location.reload()">Retry load</button></div></div></div>
 <header class="top"><button class="icon-btn menu-trigger" aria-label="Open menu" title="Menu" onclick="toggleMenu(true)"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><div class="brand-wrap"><div class="brand">DentalFlow</div><div id="clinicLabel" class="sub">Dental Clinic Management</div></div><button class="btn secondary add-top" onclick="openPatientForm()">+ Patient</button></header>

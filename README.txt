@@ -22,3 +22,10 @@ V7.8.34 — Advanced Search category filtering fix; date-wise Clinical Visits an
 - Added Follow-ups, Reminders and Payments search categories.
 - Clinical Visits and Bills are grouped under date headings, with compact patient/record rows under each date.
 - Existing records and data schema are unchanged.
+
+
+V7.8.35 — Adaptive Home Spacing
+- Reduced excess vertical space for the Home Quick Patient Search empty hint.
+- Reduced excess vertical space for the Today's Visits empty state.
+- Content remains visible; cards can grow naturally when search results or visits are present.
+- CSS-only UI adjustment; existing record and save logic unchanged.
