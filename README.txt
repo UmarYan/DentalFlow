@@ -1,31 +1,32 @@
-DentalFlow V7.8.33 — Smart Collapsible Home
+DentalFlow V7.8.43 — Shared Context Isolation & Record Guard
 
-Based on DentalFlow V7.8.32.
+Based on V7.8.42 Shared Form Routing & Context Fix.
 
-Home screen improvement:
-- Appointments, Queue, Follow-ups, and Reminders now use individual compact collapsible sections.
-- Each section header stays visible and shows a relevant count and concise status summary.
-- Queue auto-expands when active waiting/in-treatment patients exist.
-- Follow-ups and Reminders auto-expand when due today or overdue items exist.
-- Appointments default to collapsed to keep Home compact.
-- Manual expand/collapse preference is remembered for the current day.
-- Expanding/collapsing is UI-only and does not change clinical, appointment, reminder, follow-up, or financial records.
-- Existing detail lists, record actions, and View All destinations are retained.
+Changes:
+- Validates that an edit record exists before opening the shared form.
+- Derives patient context from the existing record when possible.
+- Rejects mismatched patient/record contexts instead of opening an edit form against the wrong patient.
+- Requires a valid bill for Payment form routing and checks patient/bill consistency.
+- Clears stale form context dataset values before applying the current form context.
+- Keeps existing forms, save handlers, record IDs, and financial calculations intact; no migration is performed.
 
-Validation performed: ZIP integrity, HTML parsing, JavaScript syntax checks, and static checks for expected Home section IDs/functions. Full real-device end-to-end clinical/finance testing has not been performed.
-
-Before deployment: export an external JSON backup and test the app with sample records.
+Limitations:
+- This is a defensive shared-routing step, not complete field-level unification of Patient Workflow and all six standalone forms.
+- Static syntax/package checks do not replace browser end-to-end testing. Do not deploy over the current clinic version without a verified backup and separate test run.
 
 
-V7.8.34 — Advanced Search category filtering fix; date-wise Clinical Visits and Finance grouping.
-- Selected category now limits search results to that type; All shows all matching record types.
-- Added Follow-ups, Reminders and Payments search categories.
-- Clinical Visits and Bills are grouped under date headings, with compact patient/record rows under each date.
-- Existing records and data schema are unchanged.
+V7.8.44 Shared Entry Adapters: existing public New/Edit form entry points route through the shared context controller; native form and save implementations are retained.
 
 
-V7.8.35 — Adaptive Home Spacing
-- Reduced excess vertical space for the Home Quick Patient Search empty hint.
-- Reduced excess vertical space for the Today's Visits empty state.
-- Content remains visible; cards can grow naturally when search results or visits are present.
-- CSS-only UI adjustment; existing record and save logic unchanged.
+DentalFlow V7.8.45 — Shared Form Integration Guardrails
+Based on V7.8.44.
+
+Changes in this build:
+- Shared form entry points retain one canonical existing form and save pathway per record type across FAB, patient profile, contextual details, and section entry points.
+- Record lookup compares IDs as strings to avoid numeric/string identifier mismatches.
+- Missing edit records fail closed instead of opening a new record form.
+- Payment edit requires a valid bill and a payment that belongs to that bill.
+- Patient/bill context mismatch is rejected before opening the form.
+- No data migration; existing clinical and finance calculations are retained.
+
+Verification performed: ZIP/package integrity, HTML parse, JavaScript syntax checks. Browser end-to-end testing was not completed in this build environment. Keep this as a separate test build; back up real clinic data before any deployment.
