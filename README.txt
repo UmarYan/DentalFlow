@@ -8,3 +8,6 @@ Changes:
 - Preserves existing patient/visit/plan/appointment records and adds no bulk migration.
 
 Validation performed: ZIP integrity, HTML parsing, and JavaScript syntax checks. Real Android end-to-end testing is not claimed. Back up the app's data before deployment.
+
+
+V7.8.42 update: Unified the Bills and Payments entry layouts with the compact Patient Workflow Billing & Payment section pattern. Bill item entry supports service → fee → Enter to add, retains tooth/area and quantity under More billing options, and keeps existing bill/payment save functions and record structure. Browser end-to-end workflow testing has not yet been performed; syntax and ZIP integrity checks passed.
