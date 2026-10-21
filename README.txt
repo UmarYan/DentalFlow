@@ -1,4 +1,4 @@
-DentalFlow V7.8.64 — Clinic Finance Management
+DentalFlow V7.8.65 — Finance Budgets & Funds
 
 What changed:
 - Added a dedicated Clinic Finance view under More, with a monthly overview and account balances for Cash, UPI and Bank.
@@ -70,3 +70,14 @@ Known limitations for V7.8.64:
 - Budget limits, formal reserve/growth-fund allocation tracking, receipt attachments and a full accrual/tax-ready accounting ledger are not included in this incremental release.
 - Supplier payable payments are recorded as cash-basis expenses when paid; unpaid payable amounts are tracked separately and are not included in the paid-expense total.
 - “Income less expenses” is a simple operating cash summary, not a certified profit/loss or tax report.
+
+
+DentalFlow V7.8.65 — Finance Budgets & Funds
+- Added monthly expense budgets by category, with actual spend, remaining budget, percentage used and over-budget indication. Saving a budget for the same month/category updates it instead of duplicating it.
+- Added Clinic reserve, Clinic growth, Equipment and Emergency fund allocation records with active totals and cancel/void history. Allocations are earmarks only; they do not change account balances or count as income/expense. Real transfers must still be recorded as transfers.
+- Added selected-month expense category report and a separate planning CSV export.
+- Added backward-compatible planning fields without changing existing patient, clinical, appointment, billing, payment or V7.8.64 finance transaction structures.
+- Updated service-worker cache version.
+Validation performed: all 12 inline JavaScript blocks and service worker passed Node.js syntax checks; HTML parsed successfully; 332 HTML element IDs checked with no duplicates; manifest JSON parsed; budget/fund planning smoke tests passed (save budget, actual spend/remaining calculation, fund allocation and cancellation history); ZIP integrity and required files checked. Browser end-to-end testing was not performed.
+Rollback: redeploy DentalFlow_V7.8.64_Clinic_Finance_Management.zip. Do not clear LocalStorage. Export a fresh backup before first use.
+Known limitations: fund allocations are planning earmarks and do not prove cash has been moved to a separate account; no receipt attachments or tax-ready accrual accounting in this release.
