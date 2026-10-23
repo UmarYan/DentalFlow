@@ -1,7 +1,7 @@
 {
   "name": "DentalFlow",
   "short_name": "DentalFlow",
-  "description": "Offline-first dental clinic management with clinic finance tracking.",
+  "description": "Modern, private offline-first dental clinic management app.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

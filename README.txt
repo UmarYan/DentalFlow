@@ -1,22 +1,40 @@
-DentalFlow V7.8.67 — Journal Accuracy & Export
+DentalFlow V7.8.64 — Simple Clinic Finance & Materials Inventory
 
-Changes (based on V7.8.66):
-- Improved the generated double-entry journal to represent patient bills as Accounts Receivable / Dental Service Income and patient payments as Cash/UPI/Bank / Accounts Receivable. This supports a clearer accrual-style view without extra manual entry.
-- Excludes cancelled bills and their payments from the generated patient journal.
-- Added a monthly Journal CSV export with date, source ID, description, account, debit and credit columns.
-- Removed a redundant second call to render the patient receivables panel.
-- Preserves existing Finance Budgets & Funds, transaction receipts, supplier payables, reconciliation records, existing billing and other clinic workflows.
-- Updated service-worker cache version.
+Changes in this version (based on the current V7.8.49 build):
+- Today's Workflow cards are stacked vertically in this order: Appointments, Queue, Follow-ups, Reminders.
+- Tapping a card header expands/collapses its list inline on the Home screen; it no longer navigates away.
+- Preserves the existing card title, count, summary, list rendering, search/header controls, and underlying data structures.
+- Updated service-worker cache name for the new release.
 
-Important limitations:
-- This is an operational bookkeeping aid, not certified accounting software or a tax-compliance engine. Review opening balances, historical bills, cancellations, supplier payable records and payments before using reports for formal accounts.
-- The journal is generated from current source records; it is not an immutable, locked accounting ledger. Bill edits or cancellations may change the generated view.
-- Supplier payables are journalled from payable records and their linked payments; historical supplier-payment records should be checked for consistency.
-- Reconciliation records compare a book balance with a stated actual balance but do not post adjustment entries.
-- Receipt attachments are stored locally with transaction data and can increase storage use. Make a fresh JSON backup and verify restore before relying on it.
+Deployment: Extract this ZIP and publish the DentalFlow folder contents to the existing GitHub Pages deployment.
+Rollback: Redeploy the previous ZIP. Do not clear LocalStorage; this update does not intentionally change stored data.
 
-Compatibility & safety:
-- No existing patient, clinical, appointment, bill/payment, finance transaction, budget or fund data is intentionally deleted or renamed. Changes are additive and limited to journal presentation/logic and export.
-- Do not clear LocalStorage during deployment. Export a fresh JSON backup first.
-- Validation: ZIP integrity, required-file presence, HTML parsing, manifest JSON, service-worker syntax and inline JavaScript syntax checked. Automated logic smoke tests performed for patient bill/payment debit-credit balance and cancelled-bill exclusion. Browser end-to-end testing was not performed.
-- Rollback: redeploy DentalFlow_V7.8.66_Double_Entry_Finance_Receipts.zip. Do not clear LocalStorage.
+Validation performed: JavaScript syntax, HTML parsing/IDs, service-worker syntax, ZIP integrity, and required-file checks. Browser end-to-end testing was not performed.
+
+
+V7.8.59 — App-wide helper-text cleanup: removed static explanatory helper copy across section headings, forms, Settings and More cards. Labels, placeholders, dynamic record details, validation and empty states are retained.
+
+
+V7.8.60 — Finance New Bill Fix
+Fixed openBillForm referencing the removed billPaymentHint helper-text element. The hint is now optional, so New Bill/Edit Bill can open without a null-element exception. No data keys or bill/payment data structures changed.
+
+
+V7.8.61 — Appointments tab count fix
+Added a count badge to the Appointments tab in Appointments & Queue. It displays today's active appointments (excluding Completed and Cancelled), matching the existing Today metric, and updates whenever renderAppointments runs. Queue count behavior is unchanged.
+Validation: JavaScript syntax, HTML parsing/IDs, manifest JSON, service-worker syntax, ZIP integrity and required-file checks. Browser end-to-end testing was not performed.
+
+
+V7.8.63 — Settings template section removal
+- Completely removed the “Clinical & Prescription Templates” management card from Settings.
+- Kept the existing clinical/prescription template data and chairside template insertion workflow intact; no stored data is deleted or migrated.
+- Updated the About version label and service-worker cache name.
+Validation: JavaScript syntax, HTML parsing/structure, manifest JSON, service-worker syntax, ZIP integrity and required-file checks. Browser end-to-end testing was not performed.
+Rollback: Redeploy the supplied DentalFlow_V7.8.63_Settings_Template_Section_Removed.zip. Do not clear LocalStorage.
+
+
+V7.8.64 — Simple Clinic Finance & Materials Inventory
+- Added lightweight Materials Inventory: item catalogue, opening stock, stock-in/out, minimum-stock warnings, expiry field, and recent stock activity.
+- Added Clinic Finance: simple expense entry, accounts with opening balances, transfers, monthly collection/expense summary, basic budgets, and savings goals.
+- Stock purchases can create a linked expense record when a payment account is selected; stock and expense are not entered twice.
+- Existing patient, clinical, appointment, billing, and LocalStorage structures are retained; new finance/inventory data is stored in additional arrays.
+- Service-worker cache version updated for deployment.
